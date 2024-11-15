@@ -50,6 +50,7 @@ export default function RantJournal() {
         console.error('Error fetching GIF:', error);
       }
     };
+    
 
     useEffect(() => {
       if (selectedMood) {
