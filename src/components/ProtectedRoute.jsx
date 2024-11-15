@@ -31,7 +31,9 @@ export default function ProtectedRoute({ children }) {
               and everything in between. It's just for you. 🌸
             </p>
             {errorMessage && (
-              <p className="text-red-500 text-center mt-2">{errorMessage}</p>
+                <p className="text-red-500 text-center mt-2">
+                    Oops! That&rsquo;s not it, love. Try again 💕
+                </p>
             )}
             <form onSubmit={handlePinSubmit}>
               <input
