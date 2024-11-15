@@ -40,10 +40,16 @@ export default async function handler(req, res) {
       });
 
       return res.status(201).json(newRant);
+
+    } else if (req.method === 'GET') {
+      const rants = await prisma.rant.findMany();
+      return res.status(200).json(rants);
+
     } else {
-      res.setHeader('Allow', ['POST']);
+      res.setHeader('Allow', ['GET', 'POST']);
       return res.status(405).json({ message: `Method ${req.method} not allowed` });
     }
+
   } catch (error) {
     console.error('Error handling /api/rants:', error);
     return res.status(500).json({ message: 'Internal Server Error' });
