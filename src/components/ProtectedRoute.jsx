@@ -14,36 +14,44 @@ export default function ProtectedRoute({ children }) {
     if (enteredPin === correctPin) {
       setIsPinCorrect(true);
     } else {
-      setErrorMessage("Incorrect PIN. Please try again.");
+      setErrorMessage("Oops! That’s not it, love. Try again 💕");
     }
   };
 
   return (
     <div>
       {!isPinCorrect ? (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="flex justify-center items-center min-h-screen bg-pink-100">
           <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
-            <h2 className="text-xl font-semibold mb-4 text-center">Enter PIN to Access</h2>
-            {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
+            <h2 className="text-2xl font-semibold mb-4 text-center text-pink-600">
+              Welcome, my love! 💖
+            </h2>
+            <p className="text-center text-gray-600 mb-4">
+              This is your safe place to express your feelings, your thoughts, 
+              and everything in between. It's just for you. 🌸
+            </p>
+            {errorMessage && (
+              <p className="text-red-500 text-center mt-2">{errorMessage}</p>
+            )}
             <form onSubmit={handlePinSubmit}>
               <input
                 type="password"
                 value={enteredPin}
                 onChange={(e) => setEnteredPin(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-lg mb-4"
-                placeholder="Enter PIN"
+                className="w-full p-2 border border-gray-300 rounded-lg mb-4 text-center"
+                placeholder="Enter your magic PIN ✨"
               />
               <button
                 type="submit"
-                className="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                className="w-full py-2 px-4 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-all duration-200"
               >
-                Submit
+                Unlock 💕
               </button>
             </form>
           </div>
         </div>
       ) : (
-        children 
+        children
       )}
     </div>
   );
