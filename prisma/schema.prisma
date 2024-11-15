@@ -12,3 +12,13 @@ model User {
   name  String
   email String  @unique
 }
+
+model Rant {
+  id        Int      @id @default(autoincrement())
+  title     String
+  mood      String? 
+  content   String
+  gifUrl    String?
+  date      DateTime @default(now())
+}
+
